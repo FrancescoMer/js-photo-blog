@@ -1,4 +1,3 @@
-// main.js
 const ENDPOINT = "https://lanciweb.github.io/demo/api/pictures/";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,12 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Chiavi disponibili:", Object.keys(data[0]));
 
       data.forEach(item => {
-        // Sostituisci 'image' con la chiave corretta dopo averla vista in console
-        const imageUrl = item.image     // se la tua chiave si chiama 'image'
-                       || item.url       // oppure 'url'
-                       || item.src       // oppure 'src'
-                       || item.imageUrl  // oppure 'imageUrl'
-                       || item.thumb;    // oppure 'thumb'
+        const imageUrl = item.image     
+                       || item.url       
+                       || item.src       
+                       || item.imageUrl  
+                       || item.thumb;   
         gallery.innerHTML += `
           <div class="photo-card">
             <div class="pin"></div>
