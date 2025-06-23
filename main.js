@@ -28,3 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Errore nel caricamento delle immagini:", err));
 });
+
+
+const overlay = document.querySelector('.overlay');
+const closeBtn = document.querySelector('.close-btn');
+
+// Mostra overlay (puoi collegare questo a un click su immagine)
+function showOverlay(imageSrc) {
+  const img = overlay.querySelector('img');
+  img.src = imageSrc;
+  overlay.classList.remove('hidden');
+}
+
+// Chiudi overlay
+closeBtn.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+});
+
+// Esempio: cliccando sulla prima foto si apre l’overlay
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector('.gallery')?.addEventListener('click', e => {
+    const img = e.target.closest('img');
+    if (img) {
+      showOverlay(img.src);
+    }
+  });
+});
